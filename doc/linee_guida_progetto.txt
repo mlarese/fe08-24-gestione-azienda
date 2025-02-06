@@ -1,0 +1,7 @@
+Vogliamo gestire i dipendenti di un azienda ogni dipendente è assegnato ad un ufficio
+
+utente può stare in più uffici
+
+entity ufficio id int nome
+entity dipendente id int nome string cognome string data_nascita localdate data_assunzione localdate stipendio double ufficio list ufficio matricola string
+entity azienda id int denominazione string partita_iva string  uffici list ufficio
