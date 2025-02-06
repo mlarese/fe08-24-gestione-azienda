@@ -23,6 +23,7 @@ public class CreateDBRunner implements CommandLineRunner {
     private final UfficioRepository ufficioRepository;
     private final DipendenteRepository dipendenteRepository;
     private final AziendaRepository aziendaRepository;
+    private final Azienda azienda;
 
     @Override
     public void run(String... args) throws Exception {
@@ -73,6 +74,19 @@ public class CreateDBRunner implements CommandLineRunner {
 
             aziendaRepository.save(azienda);
         }
+
+        System.out.println("---- azienda presa dal config");
+        azienda.setUffici(List.of(
+                uffici.get(faker.number().numberBetween(faker.number().numberBetween(0, 39), uffici.size())),
+                uffici.get(faker.number().numberBetween(faker.number().numberBetween(0, 39), uffici.size())),
+                uffici.get(faker.number().numberBetween(faker.number().numberBetween(0, 39), uffici.size())),
+                uffici.get(faker.number().numberBetween(faker.number().numberBetween(0, 39), uffici.size())),
+                uffici.get(faker.number().numberBetween(faker.number().numberBetween(0, 39), uffici.size()))
+        ));
+
+        aziendaRepository.save(azienda);
+        System.out.println(azienda);
+
 
 
     }

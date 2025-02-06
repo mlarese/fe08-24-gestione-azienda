@@ -1,6 +1,7 @@
 package it.epicode.gestione_azienda.dipendente;
 
 
+import it.epicode.gestione_azienda.uffici.Ufficio;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
@@ -19,5 +20,9 @@ public interface DipendenteRepository extends JpaRepository<Dipendente, Long> {
     boolean existsByDataAssunzione(LocalDate dataAssunzione);
     boolean existsByDataNascita(LocalDate dataNascita);
     boolean existsByCognome(String cognome);
+
+    List<Dipendente> findByUffici(Ufficio ufficio);
+    List<Dipendente> findByUfficiId(Long id);
+    List<Dipendente> findByUfficiNome(String nome);
 
 }
